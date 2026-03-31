@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  twitter-trawler:
+    build: .
+    container_name: twitter-trawler
+    environment:
+      - TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY}
+      - TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET}
+      - TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN}
+      - TWITTER_ACCESS_TOKEN_SECRET=${TWITTER_ACCESS_TOKEN_SECRET}
+    volumes:
+      - ./data:/data
+    command: >
+      --search "Perl"
+      --count 5
